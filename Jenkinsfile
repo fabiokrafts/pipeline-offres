@@ -138,11 +138,21 @@ PY
                     alwaysLinkToLastBuild: true
                 ])
                 // --- Option GitHub Pages (a activer avec un credential, voir README) ---
-                // withCredentials([string(credentialsId: 'gh-token', variable: 'GH_TOKEN')]) {
-                //     sh './deploy-ghpages.sh'
-                // }
+                withCredentials([string(credentialsId: 'gh-token', variable: 'GH_TOKEN')]) {
+			  sh '''
+				git config user.email "fabricekonou@gmail.com"
+				git config user.name "Fabiokrafts"
+				git checkout -B gh-pages
+				cp public/index.html index.html
+				git add index.html
+				git commit -m "Publication auto des offres" || echo "Rien a committer"
+				git push https://x-access-token:${GH_TOKEN}@github.com/fabiokrafts/pipeline-offres.git gh-pages --force
+			  '''
+			}
                 echo 'Rapport publie. Voir "Offres d emploi" dans le menu du job.'
             }
+			
+			
         }
     }
 
