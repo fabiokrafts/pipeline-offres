@@ -28,7 +28,7 @@ pipeline {
                     . ${VENV}/bin/activate
                     
                     # 2) Télécharge le VRAI script Python (Notez bien le sous-domaine 'bootstrap')
-                    curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+                    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
                     
                     # 3) Exécute le script pour installer pip à l'intérieur du venv
                     python3 get-pip.py
