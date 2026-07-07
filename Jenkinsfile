@@ -90,6 +90,8 @@ pipeline {
                 '''
             }
         }
+		
+		
 
         // 5.4 — Validation : >= 10 offres dans le CSV, et <table> + >= 10 lignes dans le HTML.
         stage('Tests') {
@@ -142,14 +144,7 @@ PY
         stage('Deploy') {
             when { environment name: 'HAS_CHANGES', value: 'true' }
             steps {
-                publishHTML(target: [
-                    reportDir: 'public',
-                    reportFiles: 'index.html',
-                    reportName: 'Offres d emploi',
-                    keepAll: true,
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true
-                ])
+               
                 // --- Option GitHub Pages (a activer avec un credential, voir README) ---
                 withCredentials([string(credentialsId: 'gh-token', variable: 'GH_TOKEN')]) {
 			  sh '''
