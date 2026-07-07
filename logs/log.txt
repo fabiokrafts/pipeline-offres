@@ -1,0 +1,8 @@
+2026-07-06 03:09:20,160 [INFO] Scraping multi-sources en cours...
+2026-07-06 03:09:21,053 [INFO] Remotive : 30 offres
+2026-07-06 03:09:22,245 [INFO] WorkingNomads : 36 offres
+2026-07-06 03:09:22,933 [INFO] Python.org : 25 offres
+2026-07-06 03:09:23,877 [INFO] HackerNews : 30 offres
+2026-07-06 03:09:23,926 [INFO] Fichier C:\wamp64_3.5.5\www\deploiement-de-solutions-de-donnees-1\00-ressources\01-mini-projets\projet05-pipeline-offres-emploi\depot-exemple\data\jobs.csv genere avec 120 offres.
+2026-07-06 03:16:36,841 [INFO] Lecture de 120 offres depuis C:\wamp64_3.5.5\www\deploiement-de-solutions-de-donnees-1\00-ressources\01-mini-projets\projet05-pipeline-offres-emploi\depot-exemple\data\jobs.csv
+2026-07-06 03:16:36,854 [INFO] Page generee : C:\wamp64_3.5.5\www\deploiement-de-solutions-de-donnees-1\00-ressources\01-mini-projets\projet05-pipeline-offres-emploi\depot-exemple\public\index.html
