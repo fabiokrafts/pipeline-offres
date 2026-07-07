@@ -19,7 +19,7 @@ pipeline {
 
     stages {
 
-               // 5.1 — Installation propre des dependances dans un venv.
+              // 5.1 — Installation propre des dependances dans un venv.
         stage('Install') {
             steps {
                 sh '''
@@ -27,18 +27,19 @@ pipeline {
                     python3 -m venv ${VENV} --without-pip
                     . ${VENV}/bin/activate
                     
-                    # 2) Télécharge le script Python d'installation (Attention à la précision de l'URL)
-                    curl -sS https://pypa.io -o get-pip.py
+                    # 2) Télécharge le VRAI script Python (Notez bien le sous-domaine 'bootstrap')
+                    curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
                     
-                    # 3) Exécute le script pour intégrer pip au venv
+                    # 3) Exécute le script pour installer pip à l'intérieur du venv
                     python3 get-pip.py
                     
-                    # 4) Installe vos dépendances
+                    # 4) Met à jour pip et installe vos dépendances du projet
                     pip install --upgrade pip
                     pip install -r requirements.txt
                 '''
             }
         }
+
 
 
 
