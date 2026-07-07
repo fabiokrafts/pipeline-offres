@@ -20,23 +20,26 @@ pipeline {
     stages {
 
         // 5.1 — Installation propre des dependances dans un venv.
-       
         stage('Install') {
             steps {
                 sh '''
-                    # Crée le venv sans ensurepip pour contourner le manque du paquet Debian
+                    # 1) Crée l'environnement virtuel sans pip
                     python3 -m venv ${VENV} --without-pip
                     . ${VENV}/bin/activate
                     
-                    # Télécharge et installe pip proprement dans le venv
-                    curl -sS https://pypa.io | python3
+                    # 2) Télécharge le VRAI script d'installation get-pip.py
+                    curl -sS https://pypa.io -o get-pip.py
                     
-                    # Met à jour et installe vos dépendances
+                    # 3) Exécute le script téléchargé pour installer pip dans le venv
+                    python3 get-pip.py
+                    
+                    # 4) Installe vos dépendances normalement
                     pip install --upgrade pip
                     pip install -r requirements.txt
                 '''
             }
         }
+
 
 
         // 5.2 — Scraping multi-sources -> data/jobs.csv
