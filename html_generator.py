@@ -11,11 +11,11 @@ from datetime import datetime
 
 import pandas as pd
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CSV_PATH = os.path.join(BASE_DIR, "data", "jobs.csv")
-PUBLIC_DIR = os.path.join(BASE_DIR, "public")
+# Utilisation directe de chemins relatifs par rapport au dossier d'exécution courant
+CSV_PATH = os.path.join("data", "jobs.csv")
+PUBLIC_DIR = "public"
 HTML_PATH = os.path.join(PUBLIC_DIR, "index.html")
-LOG_DIR = os.path.join(BASE_DIR, "logs")
+LOG_DIR = "logs"
 
 os.makedirs(PUBLIC_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
